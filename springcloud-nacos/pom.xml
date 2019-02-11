@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!--集成父级项目 start-->
+    <parent>
+        <groupId>cn.github.mrjerryli</groupId>
+        <artifactId>springcloud-learningcase</artifactId>
+        <version>2.0.5.RELEASE</version>
+    </parent>
+    <!--集成父级项目 end-->
+
+    <!--项目基本信息 start-->
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>springcloud-nacos</artifactId>
+    <name>springcloud-nacos</name>
+    <packaging>pom</packaging>
+    <description>阿里开源nacos 父类</description>
+    <!--项目基本信息 end-->
+
+    <!--子项目版本依赖 start-->
+    <properties>
+        <!--nacos项目依赖版本控制-->
+        <spring-cloud-alibaba-dependencies.version>0.2.1.RELEASE</spring-cloud-alibaba-dependencies.version>
+    </properties>
+    <!--子项目版本依赖 end-->
+
+    <!--子模块依赖 start-->
+    <modules>
+        <module>springcloud-nacos-server</module>
+        <module>springcloud-nacos-client</module>
+    </modules>
+    <!--子模块依赖 end-->
+
+    <!--依赖管理 start-->
+    <dependencyManagement>
+        <!--阿里开源项目nacos-->
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <!--依赖管理 end-->
+
+</project>

@@ -5,14 +5,79 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.2.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <version>2.0.5.RELEASE</version>
     </parent>
-    <groupId>com.github.mrjerryli</groupId>
-    <artifactId>springcloud-learningcase</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>springcloud-learningcase</name>
-    <packaging>pom</packaging>
-    <description>jerry微服务学习集合</description>
 
+    <!--父级项目介绍 start-->
+    <groupId>cn.github.mrjerryli</groupId>
+    <artifactId>springcloud-learningcase</artifactId>
+    <packaging>pom</packaging>
+    <name>springcloud-learningcase</name>
+    <description>微服务架构练手</description>
+    <!--父级项目介绍 end-->
+
+    <!--版本控制 start-->
+    <properties>
+        <java.version>1.8</java.version>
+        <!--springcloud版本信息-->
+        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
+        <!--打包时忽略测试-->
+        <maven.test.skip>true</maven.test.skip>
+        <!--lombok版本-->
+        <lombok.version>1.18.4</lombok.version>
+    </properties>
+    <!--版本控制 end-->
+
+    <!--子模块管理 start-->
+    <modules>
+        <module>springcloud-nacos</module>
+    </modules>
+    <!--子模块管理 end-->
+
+
+    <!--测试依赖及springboot启动依赖 start-->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <!--测试依赖及springboot启动依赖 end-->
+
+    <!--微服务依赖 start-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+        </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+    <!--微服务依赖 end-->
+
+
+    <!--打包编译依赖 start-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+    <!--打包编译依赖 end-->
 </project>
